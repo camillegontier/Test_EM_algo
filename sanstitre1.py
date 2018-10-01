@@ -14,26 +14,28 @@ from scipy.stats import norm
 N = 10
 #First gaussian law
 mu1 = 3
-eta1 = 5
+eta1 = 1
 p1 = 0.3
-x1 = np.random.normal(mu1,eta1,int(p1*N))
+#x1 = np.random.normal(mu1,eta1,int(p1*N))
+x1 = ([2.37463282, 3.49188839, 0.85763471])
 #Second gaussian law
 mu2 = 7
 eta2 = 1
 p2 = 0.7
-x2 = np.random.normal(mu2,eta2,int(p2*N))
-
+#x2 = np.random.normal(mu2,eta2,int(p2*N))
+x2 = ([5.37692267, 6.36436029, 8.27603811, 6.96684979, 6.31055338,
+       6.93571875, 6.44121917])
 x = np.concatenate([x1,x2])
 
 #Parameters initialization
 mu1_est = 1
 eta1_est = 2
-p1_est = 0.4
+p1_est = 0.2
 mu2_est = 3
 eta2_est = 1
-p2_est = 0.6
+p2_est = 0.8
 
-for i in range(0,100):
+for i in range(0,20):
     #E step : computation of p1 and p2 (weights computation)
     w_11 = norm.pdf(x[0], loc = mu1_est, scale = eta1_est)*p1_est \
         /(norm.pdf(x[0], loc = mu1_est, scale = eta1_est)*p1_est + \
