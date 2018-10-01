@@ -114,3 +114,5 @@ for i in range(0,100):
     
 print(mu1_est)
 print(mu2_est)
+
+
