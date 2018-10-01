@@ -31,20 +31,20 @@ x = ([1.91494731, 7.26258436])
 #Parameters initialization
 mu1_est = 1
 eta1_est = 2
-p1_est = 0.4
+#p1_est = 0.4
 mu2_est = 3
 eta2_est = 1
-p2_est = 0.6
+#p2_est = 0.6
 
-for i in range(0,3):
+for i in range(0,4):
 
-    w_11 = norm.pdf(x[0], loc = mu1_est, scale = eta1_est)*p1_est/(norm.pdf(x[0], loc = mu1_est, scale = eta1_est)*p1_est + norm.pdf(x[0], loc = mu2_est, scale = eta2_est)*p2_est)
+    w_11 = norm.pdf(x[0], loc = mu1_est, scale = eta1_est)/(norm.pdf(x[0], loc = mu1_est, scale = eta1_est) + norm.pdf(x[0], loc = mu2_est, scale = eta2_est))
     #print(w_11)
-    w_12 = norm.pdf(x[0], loc = mu2_est, scale = eta2_est)*p2_est/(norm.pdf(x[0], loc = mu1_est, scale = eta1_est)*p1_est + norm.pdf(x[0], loc = mu2_est, scale = eta2_est)*p2_est)
+    w_12 = norm.pdf(x[0], loc = mu2_est, scale = eta2_est)/(norm.pdf(x[0], loc = mu1_est, scale = eta1_est) + norm.pdf(x[0], loc = mu2_est, scale = eta2_est))
     #print(w_12)
-    w_21 = norm.pdf(x[1], loc = mu1_est, scale = eta1_est)*p1_est/(norm.pdf(x[1], loc = mu1_est, scale = eta1_est)*p1_est + norm.pdf(x[1], loc = mu2_est, scale = eta2_est)*p2_est)
+    w_21 = norm.pdf(x[1], loc = mu1_est, scale = eta1_est)/(norm.pdf(x[1], loc = mu1_est, scale = eta1_est) + norm.pdf(x[1], loc = mu2_est, scale = eta2_est))
 
-    w_22 = norm.pdf(x[1], loc = mu2_est, scale = eta2_est)*p2_est/(norm.pdf(x[1], loc = mu1_est, scale = eta1_est)*p1_est + norm.pdf(x[1], loc = mu2_est, scale = eta2_est)*p2_est)
+    w_22 = norm.pdf(x[1], loc = mu2_est, scale = eta2_est)/(norm.pdf(x[1], loc = mu1_est, scale = eta1_est) + norm.pdf(x[1], loc = mu2_est, scale = eta2_est))
 
     N1 = w_11 + w_21
     N2 = w_12 + w_22
@@ -59,6 +59,11 @@ for i in range(0,3):
     
 print(mu1_est)
 print(mu2_est)
+print(eta1_est)
+print(eta2_est)
+print(p1_est)
+print(p2_est)
+
 
 #x = np.linspace(0,20, 100)
 #y = norm.pdf(x, loc = 5, scale = 2)
