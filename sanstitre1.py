@@ -28,14 +28,15 @@ x2 = ([5.37692267, 6.36436029, 8.27603811, 6.96684979, 6.31055338,
 x = np.concatenate([x1,x2])
 
 #Parameters initialization
-mu1_est = 1
-eta1_est = 2
+mu1_est = 2
+eta1_est = 1
 p1_est = 0.2
-mu2_est = 3
+mu2_est = 6
 eta2_est = 1
 p2_est = 0.8
 
-for i in range(0,20):
+for i in range(0,15):
+    print(i)
     #E step : computation of p1 and p2 (weights computation)
     w_11 = norm.pdf(x[0], loc = mu1_est, scale = eta1_est)*p1_est \
         /(norm.pdf(x[0], loc = mu1_est, scale = eta1_est)*p1_est + \
